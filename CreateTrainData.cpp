@@ -20,7 +20,7 @@ void CreateTrainData(HoGParam cHoGPar, int nPosFiles)
     int nCount=0;
     int nLabel, nAtt;
     double train_hog[cHoGPar.GetDesSize()];
-    
+
     // Set-up training data
     ifstream InFile ("training_data2/training_file.txt");
     ofstream OutFile;
@@ -30,32 +30,32 @@ void CreateTrainData(HoGParam cHoGPar, int nPosFiles)
         while ( getline (InFile,line) )
         {
             nAtt = 1;
-            
+
             frame = imread( (strName+line), 1 );
             cvtColor(frame, gray_image, CV_BGR2GRAY);
-            
+
             cHoGPar.SetDesSize(gray_image.rows, gray_image.cols);
-            
+
             find_gradient(gray_image, cHoGPar, train_hog);
-        
+
             if (nCount < nPosFiles)
                 nLabel = 1.0;
             else
                 nLabel = -1.0;
-            
+
             OutFile << nLabel << " ";
-            
+
             for(int i = 0; i < cHoGPar.GetDesSize(); i++)
             {
                 if(train_hog[i] > 0.0001)
                     OutFile << nAtt << ":" << train_hog[i] << " ";
                 nAtt++;
             }
-            
+
             OutFile << endl;
-            
+
             nCount++;
-            
+
             cout << strName+line << " " << nCount << " " << endl;
         }
         OutFile.close();

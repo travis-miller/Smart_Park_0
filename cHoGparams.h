@@ -19,12 +19,12 @@ private:
     int m_nWinHeight;
     int m_nWinWidth;
     int m_nDesSize;
-    
+
 public:
     HoGParam(int nBins, int nCellSize, int nBlockSize, int nStride);
-    
+
     void SetDesSize(int nHeight, int nWidth);
-    
+
     int GetBins(){return m_nBins;}
     int GetCellSize(){return m_nCellSize;}
     int GetBlockSize(){return m_nBlockSize;}

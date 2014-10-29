@@ -38,10 +38,10 @@ struct ImageParam
 
 int main(int argc, char* argv[])
 {
-    
+
     using namespace cv;
     using namespace std;
-    
+
     double dValue;
     Size winSize;
     Size winCell;
@@ -55,47 +55,47 @@ int main(int argc, char* argv[])
     winSize.height = 320;
     cSP_HoGPar.SetDesSize(winSize.width, winSize.height);
     double dHoG[cSP_HoGPar.GetDesSize()]; // HoG Descriptor vector
-    
-    
+
+
     // Starts clock
     clock_t t;
     t = clock();
-    
-    
-    
+
+
+
     //CarDetection(SP_SVMmodel, cSP_HoGPar);
     //WebCarDetection();
-    
+
     // Reads in image and converts to grayscale
     //frame = imread( "car_test12.jpg", 1 );
     //cvtColor(frame, gray_image, CV_BGR2GRAY);
     //imwrite( "Gray_Image.jpg", gray_image );
-    
-    
+
+
     // Sets parameters for HoG Descriptor size and visualization window
     //ImageParam sHogImage = {gray_image.rows,  gray_image.cols};
     //winSize.width = sHogImage.nWidth;
     //winSize.height = sHogImage.nHeight;
     //cSP_HoGPar.SetDesSize(sHogImage.nHeight, sHogImage.nWidth);
     //dHoG[cSP_HoGPar.GetDesSize()];
-    
 
-    
+
+
     //find_gradient(gray_image, cSP_HoGPar, dHoG); // Generates HoG Descriptor
     //dValue = TestHoG(SP_SVMmodel, cSP_HoGPar, dHoG); // Tests HoG Descriptor with SVM
-    
+
     // Ends Clock
 
     t = clock() - t;
     cout << "It took me " << t << " clicks ("<< ((float)t)/CLOCKS_PER_SEC << " seconds)." << endl;
-    
+
     // Creates HoG visualization
     //grad_image = get_hogdescriptor_visual_image(frame, dHoG, winSize, winCell, 2, 1.5);
     //imwrite( "/Users/travismiller/Documents/C++/Smart_Park2/Smart_Park2/Gradient_Image.jpg", grad_image );
 
-    
+
     //CreateTrainData(cSP_HoGPar, 344); // Creates SVM Training Data
     //CreateTestData(SP_SVMmodel, cSP_HoGPar, 118); // Creates Test Results Data
-    
+
     return 0;
 }
